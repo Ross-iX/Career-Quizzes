@@ -1,1905 +1,632 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2759
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\froman\fcharset0 Times-Roman;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\deftab720
-\pard\pardeftab720\partightenfactor0
-
-\f0\fs29\fsmilli14667 \cf0 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 <!DOCTYPE html>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <html lang="en">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <head>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <meta charset="UTF-8">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <meta name="viewport" content="width=device-width,initial-scale=1">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <title>Career Path Selector</title>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <script src="https://cdn.tailwindcss.com"></script>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <style>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 body\{font-family:Lato,sans-serif;background:#f9f9f9\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 .ix-p\{color:#ed157a\}.ix-pb\{background-color:#ed157a\}.ix-pbd\{border-color:#ed157a\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 .ix-pl\{background-color:rgba(237,21,122,.1)\}.ix-g\{background:linear-gradient(135deg,#ed157a 0%,#ff4d9d 100%)\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 .c-c\{transition:all .3s ease;cursor:pointer\}.c-c:hover\{transform:translateY(-5px);box-shadow:0 10px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04)\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 .c-i\{transition:all .3s ease\}.c-c:hover .c-i\{transform:scale(1.1)\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 .p-b\{transition:width .5s ease-in-out\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 .q-c\{transition:opacity .3s ease-in-out,transform .3s ease-in-out\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 .o-c\{transition:all .2s ease;border:2px solid transparent\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 .o-c:hover\{transform:translateY(-2px);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 .o-c.s\{border-color:#ed157a;background-color:rgba(237,21,122,.05)\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 .r-c\{animation:fadeIn .8s ease-in-out\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 @keyframes fadeIn\{from\{opacity:0;transform:translateY(20px)\}to\{opacity:1;transform:translateY(0)\}\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 .s-n\{background:linear-gradient(90deg,#ed157a,#ff4d9d);-webkit-background-clip:text;-webkit-text-fill-color:transparent\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 .f-i\{animation:fadeIn .6s ease-in-out\}.p-s\{animation:fadeIn .8s ease-in-out\}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </style>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </head>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <body>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="w-full max-w-4xl bg-white rounded-2xl shadow-xl overflow-hidden">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="ix-g p-6 md:p-8">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="flex items-center justify-between">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h1 class="text-2xl md:text-3xl font-bold text-white">iX Career Path Explorer</h1>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="white"/>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path d="M11.5 20L17.5 26L28.5 15" stroke="#ed157a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-white text-opacity-90 mt-2">Discover your ideal career path and see how much you could earn with iXperience's career accelerator programs.</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6 bg-white bg-opacity-30 h-2 rounded-full">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="pb" class="p-b bg-white h-full rounded-full" style="width:0%"></div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="flex justify-between mt-1 text-xs text-white">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span id="pt">Choose Your Path</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span id="pp">0%</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="mc" class="p-6 md:p-8">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="ps" class="p-s">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h2 class="text-xl md:text-2xl font-bold text-black">Choose Your Career Direction</h2>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-gray-600 mt-2">Select the career path you're most interested in exploring.</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="bp" class="c-c bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="flex justify-center mb-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="c-i bg-black bg-opacity-5 rounded-full p-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h3 class="text-2xl font-bold text-center text-black">Investment Banking</h3>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-center text-gray-600 mt-4">Launch your career in financial advisory, mergers & acquisitions, and capital markets with top global banks.</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <ul class="space-y-2">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-gray-600">Learn financial modeling & valuation</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-gray-600">Master pitch book creation</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-gray-600">Starting salaries from $95,000+</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </ul>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6 flex justify-center">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button class="px-8 py-3 ix-pb text-white rounded-lg font-bold hover:bg-opacity-90 transition-all">Explore Banking</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="cp" class="c-c bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="flex justify-center mb-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="c-i bg-black bg-opacity-5 rounded-full p-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h3 class="text-2xl font-bold text-center text-black">Management Consulting</h3>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-center text-gray-600 mt-4">Solve complex business problems and drive organizational transformation at leading consulting firms.</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <ul class="space-y-2">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-gray-600">Master case interview frameworks</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-gray-600">Develop strategic thinking skills</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-gray-600">Starting salaries from $85,000+</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </ul>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6 flex justify-center">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button class="px-8 py-3 ix-pb text-white rounded-lg font-bold hover:bg-opacity-90 transition-all">Explore Consulting</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="bc" class="hidden f-i">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="flex items-center mb-6">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="btp" class="mr-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-all">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h2 class="text-xl md:text-2xl font-bold text-black">Investment Banking Salary Estimator</h2>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="q1b" class="q-c">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h3 class="text-lg font-bold text-black mb-4">What type of investment bank are you aiming for?</h3>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="Bulge Bracket">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">Bulge Bracket</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">Goldman Sachs, Morgan Stanley, JP Morgan</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="Elite Boutique">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">Elite Boutique</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">Evercore, Lazard, Centerview</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="Middle Market">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">Middle Market</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">Jefferies, Houlihan Lokey, William Blair</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="I'm not sure yet">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">I'm not sure yet</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">Still exploring options</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 flex justify-end">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="n1b" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Next</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="q2b" class="q-c hidden">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h3 class="text-lg font-bold text-black mb-4">What's your level of relevant experience so far?</h3>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="grid grid-cols-1 gap-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="2" data-o="I've done a finance-related internship">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">I've done a finance-related internship</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">You have some professional experience</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="2" data-o="I've taken finance courses or technical prep">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">I've taken finance courses or technical prep</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">You have academic preparation</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="2" data-o="I'm starting from scratch">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">I'm starting from scratch</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">New to investment banking</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 flex justify-between">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="p2b" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Back</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="n2b" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Next</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="q3b" class="q-c hidden">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h3 class="text-lg font-bold text-black mb-4">When do you plan to apply for internships?</h3>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="grid grid-cols-1 gap-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="3" data-o="Within the next 3 months">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">Within the next 3 months</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">You're ready to start soon</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="3" data-o="6\'9612 months">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">6\'9612 months</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">Planning ahead for next year</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="3" data-o="Not sure yet">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">Not sure yet</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">Still figuring out your timeline</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 flex justify-between">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="p3b" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Back</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="n3b" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Next</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="q4b" class="q-c hidden">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h3 class="text-lg font-bold text-black mb-4">What's your graduation year?</h3>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2025">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">2025</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2026">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">2026</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2027">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">2027</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2028">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">2028</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 flex justify-between">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="p4b" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Back</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="cb" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Calculate My Potential</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="rb" class="r-c hidden">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="text-center">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="inline-block p-3 rounded-full ix-pl mb-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 ix-p" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h3 class="text-2xl md:text-3xl font-bold text-black">\uc0\u55357 \u56496  Here's what your investment banking career could look like:</h3>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="text-lg font-bold text-black">Traditional Path</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600">Starting Salary</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-2xl font-black s-n">$85,000</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600">Career Earnings</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-2xl font-black s-n">$6.5M</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6 border-t border-gray-200 pt-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <ul class="space-y-2">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-gray-600">Standard career progression</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-gray-600">Limited networking opportunities</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-gray-600">Self-guided preparation</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </ul>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="ix-pl p-6 rounded-xl border ix-pbd relative overflow-hidden">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="absolute top-0 right-0 ix-pb text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 RECOMMENDED
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="text-lg font-bold text-black">iXperience Path</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm ix-p">Starting Salary</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-2xl font-black ix-p">$125,000</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm ix-p">Career Earnings</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-2xl font-black ix-p">$10.2M+</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6 border-t ix-pbd pt-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <ul class="space-y-2">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-black">Hands-on financial modeling</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-black">Guaranteed internship</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-black">Wall Street networking systems</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </ul>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 bg-gradient-to-r from-gray-50 to-pink-50 p-6 rounded-xl border ix-pbd">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="flex items-center">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="ix-pb rounded-full p-2 mr-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="text-lg font-bold text-black">Your Potential Lifetime Boost</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-3xl font-black ix-p">$3.7 Million</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-10 text-center">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-lg font-bold text-black mb-6">\uc0\u55356 \u57263  Want the high-earning investment banking path?</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <a href="https://students.ixperience.co/sign_up" class="inline-block px-8 py-4 ix-pb hover:bg-opacity-90 text-white font-bold rounded-lg shadow-lg transition-all duration-200 transform hover:-translate-y-1">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 Apply Now to iXperience
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </a>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="mt-4 text-sm text-gray-500">Limited spots available for Summer Online 2025</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 flex justify-between">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="rbb" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Start Over</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="cc" class="hidden f-i">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="flex items-center mb-6">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="btpc" class="mr-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-all">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h2 class="text-xl md:text-2xl font-bold text-black">Management Consulting Salary Estimator</h2>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="q1c" class="q-c">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h3 class="text-lg font-bold text-black mb-4">What type of consulting firm are you aiming for?</h3>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="MBB (McKinsey, BCG, Bain)">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">MBB (McKinsey, BCG, Bain)</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">Top-tier strategy consulting firms</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="Big 4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">Big 4</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">Deloitte, EY, KPMG, PwC</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="Boutique Consulting Firm">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">Boutique Consulting Firm</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">Specialized consulting services</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="I'm not sure yet">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">I'm not sure yet</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">Still exploring options</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 flex justify-end">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="n1c" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Next</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="q2c" class="q-c hidden">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h3 class="text-lg font-bold text-black mb-4">What's your level of relevant experience so far?</h3>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="grid grid-cols-1 gap-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="2" data-o="I've done a business-related internship">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">I've done a business-related internship</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">You have some professional experience</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="2" data-o="I've taken consulting courses or case prep">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">I've taken consulting courses or case prep</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">You have academic preparation</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="2" data-o="I'm starting from scratch">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">I'm starting from scratch</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">New to consulting</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 flex justify-between">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="p2c" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Back</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="n2c" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Next</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="q3c" class="q-c hidden">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h3 class="text-lg font-bold text-black mb-4">When do you plan to apply for internships?</h3>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="grid grid-cols-1 gap-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="3" data-o="Within the next 3 months">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">Within the next 3 months</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">You're ready to start soon</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="3" data-o="6\'9612 months">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">6\'9612 months</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">Planning ahead for next year</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="3" data-o="Not sure yet">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">Not sure yet</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600 mt-1">Still figuring out your timeline</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 flex justify-between">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="p3c" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Back</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="n3c" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Next</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="q4c" class="q-c hidden">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h3 class="text-lg font-bold text-black mb-4">What's your graduation year?</h3>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2025">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">2025</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2026">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">2026</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2027">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">2027</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2028">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="font-bold text-black">2028</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 flex justify-between">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="p4c" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Back</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="cc" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Calculate My Potential</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div id="rc" class="r-c hidden">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="text-center">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="inline-block p-3 rounded-full ix-pl mb-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 ix-p" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h3 class="text-2xl md:text-3xl font-bold text-black">\uc0\u55357 \u56496  Here's what your consulting career could look like:</h3>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="text-lg font-bold text-black">Traditional Path</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600">Starting Salary</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-2xl font-black s-n">$72,000</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm text-gray-600">Career Earnings</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-2xl font-black s-n">$5.2M</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6 border-t border-gray-200 pt-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <ul class="space-y-2">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-gray-600">Standard career progression</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-gray-600">Limited networking opportunities</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-gray-600">Self-guided preparation</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </ul>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="ix-pl p-6 rounded-xl border ix-pbd relative overflow-hidden">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="absolute top-0 right-0 ix-pb text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 RECOMMENDED
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="text-lg font-bold text-black">iXperience Path</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm ix-p">Starting Salary</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-2xl font-black ix-p">$110,000</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-sm ix-p">Career Earnings</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-2xl font-black ix-p">$8.9M+</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6 border-t ix-pbd pt-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <ul class="space-y-2">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-black">Hands-on training</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-black">Guaranteed internship</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <li class="flex items-start">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <span class="text-sm text-black">Industry networking systems</span>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </li>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </ul>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 bg-gradient-to-r from-gray-50 to-pink-50 p-6 rounded-xl border ix-pbd">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="flex items-center">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="ix-pb rounded-full p-2 mr-4">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </svg>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <h4 class="text-lg font-bold text-black">Your Potential Lifetime Boost</h4>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-3xl font-black ix-p">$3.7 Million</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-10 text-center">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="text-lg font-bold text-black mb-6">\uc0\u55356 \u57263  Want the high-earning consulting path?</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <a href="https://students.ixperience.co/sign_up" class="inline-block px-8 py-4 ix-pb hover:bg-opacity-90 text-white font-bold rounded-lg shadow-lg transition-all duration-200 transform hover:-translate-y-1">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 Apply Now to iXperience
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </a>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p class="mt-4 text-sm text-gray-500">Limited spots available for Summer Online 2025</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-8 flex justify-between">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <button id="rbc" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Start Over</button>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <div class="mt-6 text-center text-sm text-gray-500">
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <p>\'a9 2023 iXperience. All rights reserved.</p>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </div>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <script>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.addEventListener('DOMContentLoaded',function()\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 let p=null,q=0,t=4,a=\{c:\{1:null,2:null,3:null,4:null\},b:\{1:null,2:null,3:null,4:null\}\};
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 function u()\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 let r=p===null?0:(q===0?10:10+((q/t)*90));
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('pb').style.width=`$\{r\}%`;
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('pp').textContent=`$\{Math.round(r)\}%`;
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('pt').textContent=p===null?'Choose Your Path':q===0?'Path Selected':`Question $\{q\} of $\{t\}`;
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('bp').addEventListener('click',function()\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('ps').classList.add('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('bc').classList.remove('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 p='b';q=1;u();
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('cp').addEventListener('click',function()\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('ps').classList.add('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('cc').classList.remove('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 p='c';q=1;u();
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('btp').addEventListener('click',function()\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('bc').classList.add('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('ps').classList.remove('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 r('b');p=null;q=0;u();
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('btpc').addEventListener('click',function()\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('cc').classList.add('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('ps').classList.remove('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 r('c');p=null;q=0;u();
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 function r(p)\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 for(let i=1;i<=t;i++)a[p][i]=null;
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.querySelectorAll(`#$\{p\}c .o-c`).forEach(c=>\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 c.classList.remove('s');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.querySelectorAll(`#$\{p\}c [id^="n"], #$\{p\}c [id^="c"]`).forEach(b=>\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 b.classList.add('opacity-50','cursor-not-allowed');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 b.disabled=true;
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.querySelectorAll(`#$\{p\}c [id^="q"]`).forEach((d,i)=>\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 d.classList[i===0?'remove':'add']('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.querySelector(`#r$\{p\}`).classList.add('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.querySelectorAll('.o-c').forEach(c=>\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 c.addEventListener('click',function()\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 const n=parseInt(this.dataset.q);
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 const o=this.dataset.o;
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 this.closest('.q-c').querySelectorAll('.o-c').forEach(o=>\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 o.classList.remove('s');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 this.classList.add('s');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 a[p][n]=o;
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 const b=document.getElementById(`n$\{n\}$\{p\}`);
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 if(b)\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 b.classList.remove('opacity-50','cursor-not-allowed');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 b.disabled=false;
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 if(n===4)\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 const c=document.getElementById(`c$\{p\}`);
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 c.classList.remove('opacity-50','cursor-not-allowed');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 c.disabled=false;
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 ['c','b'].forEach(p=>\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 for(let i=1;i<=3;i++)\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById(`n$\{i\}$\{p\}`).addEventListener('click',function()\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById(`q$\{i\}$\{p\}`).classList.add('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById(`q$\{i+1\}$\{p\}`).classList.remove('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 q=i+1;u();
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 for(let i=2;i<=4;i++)\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById(`p$\{i\}$\{p\}`).addEventListener('click',function()\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById(`q$\{i\}$\{p\}`).classList.add('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById(`q$\{i-1\}$\{p\}`).classList.remove('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 q=i-1;u();
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById(`c$\{p\}`).addEventListener('click',function()\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById(`q4$\{p\}`).classList.add('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById(`r$\{p\}`).classList.remove('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('pb').style.width='100%';
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('pt').textContent='Results';
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('pp').textContent='100%';
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById(`rb$\{p\}`).addEventListener('click',reset);
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 function reset()\{
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 r('c');r('b');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('bc').classList.add('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('cc').classList.add('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 document.getElementById('ps').classList.remove('hidden');
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 p=null;q=0;u();
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \}
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 u();
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 \});
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </script>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 <script>(function()\{function c()\{var b=a.contentDocument||a.contentWindow.document;if(b)\{var d=b.createElement('script');d.innerHTML="window.__CF$cv$params=\{r:'93fa6b25550d8468',t:'MTc0NzIyNTk0OS4wMDAwMDA='\};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)\}\}if(document.body)\{var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else\{var e=document.onreadystatechange||function()\{\};document.onreadystatechange=function(b)\{e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())\}\}\}\})();</script></body>
-\f1\fs24 \
-
-\f0\fs29\fsmilli14667 </html>
-\f1\fs24 \
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Career Path Selector</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+body{font-family:Lato,sans-serif;background:#f9f9f9}
+.ix-p{color:#ed157a}.ix-pb{background-color:#ed157a}.ix-pbd{border-color:#ed157a}
+.ix-pl{background-color:rgba(237,21,122,.1)}.ix-g{background:linear-gradient(135deg,#ed157a 0%,#ff4d9d 100%)}
+.c-c{transition:all .3s ease;cursor:pointer}.c-c:hover{transform:translateY(-5px);box-shadow:0 10px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04)}
+.c-i{transition:all .3s ease}.c-c:hover .c-i{transform:scale(1.1)}
+.p-b{transition:width .5s ease-in-out}
+.q-c{transition:opacity .3s ease-in-out,transform .3s ease-in-out}
+.o-c{transition:all .2s ease;border:2px solid transparent}
+.o-c:hover{transform:translateY(-2px);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}
+.o-c.s{border-color:#ed157a;background-color:rgba(237,21,122,.05)}
+.r-c{animation:fadeIn .8s ease-in-out}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.s-n{background:linear-gradient(90deg,#ed157a,#ff4d9d);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.f-i{animation:fadeIn .6s ease-in-out}.p-s{animation:fadeIn .8s ease-in-out}
+</style>
+</head>
+<body>
+<div class="min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
+<div class="w-full max-w-4xl bg-white rounded-2xl shadow-xl overflow-hidden">
+<div class="ix-g p-6 md:p-8">
+<div class="flex items-center justify-between">
+<h1 class="text-2xl md:text-3xl font-bold text-white">iX Career Path Explorer</h1>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="white"/>
+<path d="M11.5 20L17.5 26L28.5 15" stroke="#ed157a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</div>
+<p class="text-white text-opacity-90 mt-2">Discover your ideal career path and see how much you could earn with iXperience's career accelerator programs.</p>
+<div class="mt-6 bg-white bg-opacity-30 h-2 rounded-full">
+<div id="pb" class="p-b bg-white h-full rounded-full" style="width:0%"></div>
+</div>
+<div class="flex justify-between mt-1 text-xs text-white">
+<span id="pt">Choose Your Path</span>
+<span id="pp">0%</span>
+</div>
+</div>
+<div id="mc" class="p-6 md:p-8">
+<div id="ps" class="p-s">
+<h2 class="text-xl md:text-2xl font-bold text-black">Choose Your Career Direction</h2>
+<p class="text-gray-600 mt-2">Select the career path you're most interested in exploring.</p>
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div id="bp" class="c-c bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+<div class="flex justify-center mb-4">
+<div class="c-i bg-black bg-opacity-5 rounded-full p-4">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+</div>
+</div>
+<h3 class="text-2xl font-bold text-center text-black">Investment Banking</h3>
+<p class="text-center text-gray-600 mt-4">Launch your career in financial advisory, mergers & acquisitions, and capital markets with top global banks.</p>
+<div class="mt-6">
+<ul class="space-y-2">
+<li class="flex items-start">
+<svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-gray-600">Learn financial modeling & valuation</span>
+</li>
+<li class="flex items-start">
+<svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-gray-600">Master pitch book creation</span>
+</li>
+<li class="flex items-start">
+<svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-gray-600">Starting salaries from $95,000+</span>
+</li>
+</ul>
+</div>
+<div class="mt-6 flex justify-center">
+<button class="px-8 py-3 ix-pb text-white rounded-lg font-bold hover:bg-opacity-90 transition-all">Explore Banking</button>
+</div>
+</div>
+<div id="cp" class="c-c bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+<div class="flex justify-center mb-4">
+<div class="c-i bg-black bg-opacity-5 rounded-full p-4">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+</svg>
+</div>
+</div>
+<h3 class="text-2xl font-bold text-center text-black">Management Consulting</h3>
+<p class="text-center text-gray-600 mt-4">Solve complex business problems and drive organizational transformation at leading consulting firms.</p>
+<div class="mt-6">
+<ul class="space-y-2">
+<li class="flex items-start">
+<svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-gray-600">Master case interview frameworks</span>
+</li>
+<li class="flex items-start">
+<svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-gray-600">Develop strategic thinking skills</span>
+</li>
+<li class="flex items-start">
+<svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-gray-600">Starting salaries from $85,000+</span>
+</li>
+</ul>
+</div>
+<div class="mt-6 flex justify-center">
+<button class="px-8 py-3 ix-pb text-white rounded-lg font-bold hover:bg-opacity-90 transition-all">Explore Consulting</button>
+</div>
+</div>
+</div>
+</div>
+<div id="bc" class="hidden f-i">
+<div class="flex items-center mb-6">
+<button id="btp" class="mr-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-all">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+</svg>
+</button>
+<h2 class="text-xl md:text-2xl font-bold text-black">Investment Banking Salary Estimator</h2>
+</div>
+<div id="q1b" class="q-c">
+<h3 class="text-lg font-bold text-black mb-4">What type of investment bank are you aiming for?</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="Bulge Bracket">
+<h4 class="font-bold text-black">Bulge Bracket</h4>
+<p class="text-sm text-gray-600 mt-1">Goldman Sachs, Morgan Stanley, JP Morgan</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="Elite Boutique">
+<h4 class="font-bold text-black">Elite Boutique</h4>
+<p class="text-sm text-gray-600 mt-1">Evercore, Lazard, Centerview</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="Middle Market">
+<h4 class="font-bold text-black">Middle Market</h4>
+<p class="text-sm text-gray-600 mt-1">Jefferies, Houlihan Lokey, William Blair</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="I'm not sure yet">
+<h4 class="font-bold text-black">I'm not sure yet</h4>
+<p class="text-sm text-gray-600 mt-1">Still exploring options</p>
+</div>
+</div>
+<div class="mt-8 flex justify-end">
+<button id="n1b" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Next</button>
+</div>
+</div>
+<div id="q2b" class="q-c hidden">
+<h3 class="text-lg font-bold text-black mb-4">What's your level of relevant experience so far?</h3>
+<div class="grid grid-cols-1 gap-4">
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="2" data-o="I've done a finance-related internship">
+<h4 class="font-bold text-black">I've done a finance-related internship</h4>
+<p class="text-sm text-gray-600 mt-1">You have some professional experience</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="2" data-o="I've taken finance courses or technical prep">
+<h4 class="font-bold text-black">I've taken finance courses or technical prep</h4>
+<p class="text-sm text-gray-600 mt-1">You have academic preparation</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="2" data-o="I'm starting from scratch">
+<h4 class="font-bold text-black">I'm starting from scratch</h4>
+<p class="text-sm text-gray-600 mt-1">New to investment banking</p>
+</div>
+</div>
+<div class="mt-8 flex justify-between">
+<button id="p2b" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Back</button>
+<button id="n2b" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Next</button>
+</div>
+</div>
+<div id="q3b" class="q-c hidden">
+<h3 class="text-lg font-bold text-black mb-4">When do you plan to apply for internships?</h3>
+<div class="grid grid-cols-1 gap-4">
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="3" data-o="Within the next 3 months">
+<h4 class="font-bold text-black">Within the next 3 months</h4>
+<p class="text-sm text-gray-600 mt-1">You're ready to start soon</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="3" data-o="6–12 months">
+<h4 class="font-bold text-black">6–12 months</h4>
+<p class="text-sm text-gray-600 mt-1">Planning ahead for next year</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="3" data-o="Not sure yet">
+<h4 class="font-bold text-black">Not sure yet</h4>
+<p class="text-sm text-gray-600 mt-1">Still figuring out your timeline</p>
+</div>
+</div>
+<div class="mt-8 flex justify-between">
+<button id="p3b" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Back</button>
+<button id="n3b" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Next</button>
+</div>
+</div>
+<div id="q4b" class="q-c hidden">
+<h3 class="text-lg font-bold text-black mb-4">What's your graduation year?</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2025">
+<h4 class="font-bold text-black">2025</h4>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2026">
+<h4 class="font-bold text-black">2026</h4>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2027">
+<h4 class="font-bold text-black">2027</h4>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2028">
+<h4 class="font-bold text-black">2028</h4>
+</div>
+</div>
+<div class="mt-8 flex justify-between">
+<button id="p4b" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Back</button>
+<button id="cb" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Calculate My Potential</button>
+</div>
+</div>
+<div id="rb" class="r-c hidden">
+<div class="text-center">
+<div class="inline-block p-3 rounded-full ix-pl mb-4">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 ix-p" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+</div>
+<h3 class="text-2xl md:text-3xl font-bold text-black">💰 Here's what your investment banking career could look like:</h3>
+</div>
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+<h4 class="text-lg font-bold text-black">Traditional Path</h4>
+<div class="mt-4">
+<p class="text-sm text-gray-600">Starting Salary</p>
+<p class="text-2xl font-black s-n">$85,000</p>
+</div>
+<div class="mt-6">
+<p class="text-sm text-gray-600">Career Earnings</p>
+<p class="text-2xl font-black s-n">$6.5M</p>
+</div>
+<div class="mt-6 border-t border-gray-200 pt-4">
+<ul class="space-y-2">
+<li class="flex items-start">
+<svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-gray-600">Standard career progression</span>
+</li>
+<li class="flex items-start">
+<svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-gray-600">Limited networking opportunities</span>
+</li>
+<li class="flex items-start">
+<svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-gray-600">Self-guided preparation</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ix-pl p-6 rounded-xl border ix-pbd relative overflow-hidden">
+<div class="absolute top-0 right-0 ix-pb text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+RECOMMENDED
+</div>
+<h4 class="text-lg font-bold text-black">iXperience Path</h4>
+<div class="mt-4">
+<p class="text-sm ix-p">Starting Salary</p>
+<p class="text-2xl font-black ix-p">$125,000</p>
+</div>
+<div class="mt-6">
+<p class="text-sm ix-p">Career Earnings</p>
+<p class="text-2xl font-black ix-p">$10.2M+</p>
+</div>
+<div class="mt-6 border-t ix-pbd pt-4">
+<ul class="space-y-2">
+<li class="flex items-start">
+<svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-black">Hands-on financial modeling</span>
+</li>
+<li class="flex items-start">
+<svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-black">Guaranteed internship</span>
+</li>
+<li class="flex items-start">
+<svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-black">Wall Street networking systems</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-8 bg-gradient-to-r from-gray-50 to-pink-50 p-6 rounded-xl border ix-pbd">
+<div class="flex items-center">
+<div class="ix-pb rounded-full p-2 mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+</svg>
+</div>
+<div>
+<h4 class="text-lg font-bold text-black">Your Potential Lifetime Boost</h4>
+<p class="text-3xl font-black ix-p">$3.7 Million</p>
+</div>
+</div>
+</div>
+<div class="mt-10 text-center">
+<p class="text-lg font-bold text-black mb-6">🎯 Want the high-earning investment banking path?</p>
+<a href="https://students.ixperience.co/sign_up" class="inline-block px-8 py-4 ix-pb hover:bg-opacity-90 text-white font-bold rounded-lg shadow-lg transition-all duration-200 transform hover:-translate-y-1">
+Apply Now to iXperience
+</a>
+<p class="mt-4 text-sm text-gray-500">Limited spots available for Summer Online 2025</p>
+</div>
+<div class="mt-8 flex justify-between">
+<button id="rbb" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Start Over</button>
+</div>
+</div>
+</div>
+<div id="cc" class="hidden f-i">
+<div class="flex items-center mb-6">
+<button id="btpc" class="mr-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-all">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+</svg>
+</button>
+<h2 class="text-xl md:text-2xl font-bold text-black">Management Consulting Salary Estimator</h2>
+</div>
+<div id="q1c" class="q-c">
+<h3 class="text-lg font-bold text-black mb-4">What type of consulting firm are you aiming for?</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="MBB (McKinsey, BCG, Bain)">
+<h4 class="font-bold text-black">MBB (McKinsey, BCG, Bain)</h4>
+<p class="text-sm text-gray-600 mt-1">Top-tier strategy consulting firms</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="Big 4">
+<h4 class="font-bold text-black">Big 4</h4>
+<p class="text-sm text-gray-600 mt-1">Deloitte, EY, KPMG, PwC</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="Boutique Consulting Firm">
+<h4 class="font-bold text-black">Boutique Consulting Firm</h4>
+<p class="text-sm text-gray-600 mt-1">Specialized consulting services</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="1" data-o="I'm not sure yet">
+<h4 class="font-bold text-black">I'm not sure yet</h4>
+<p class="text-sm text-gray-600 mt-1">Still exploring options</p>
+</div>
+</div>
+<div class="mt-8 flex justify-end">
+<button id="n1c" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Next</button>
+</div>
+</div>
+<div id="q2c" class="q-c hidden">
+<h3 class="text-lg font-bold text-black mb-4">What's your level of relevant experience so far?</h3>
+<div class="grid grid-cols-1 gap-4">
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="2" data-o="I've done a business-related internship">
+<h4 class="font-bold text-black">I've done a business-related internship</h4>
+<p class="text-sm text-gray-600 mt-1">You have some professional experience</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="2" data-o="I've taken consulting courses or case prep">
+<h4 class="font-bold text-black">I've taken consulting courses or case prep</h4>
+<p class="text-sm text-gray-600 mt-1">You have academic preparation</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="2" data-o="I'm starting from scratch">
+<h4 class="font-bold text-black">I'm starting from scratch</h4>
+<p class="text-sm text-gray-600 mt-1">New to consulting</p>
+</div>
+</div>
+<div class="mt-8 flex justify-between">
+<button id="p2c" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Back</button>
+<button id="n2c" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Next</button>
+</div>
+</div>
+<div id="q3c" class="q-c hidden">
+<h3 class="text-lg font-bold text-black mb-4">When do you plan to apply for internships?</h3>
+<div class="grid grid-cols-1 gap-4">
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="3" data-o="Within the next 3 months">
+<h4 class="font-bold text-black">Within the next 3 months</h4>
+<p class="text-sm text-gray-600 mt-1">You're ready to start soon</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="3" data-o="6–12 months">
+<h4 class="font-bold text-black">6–12 months</h4>
+<p class="text-sm text-gray-600 mt-1">Planning ahead for next year</p>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50" data-q="3" data-o="Not sure yet">
+<h4 class="font-bold text-black">Not sure yet</h4>
+<p class="text-sm text-gray-600 mt-1">Still figuring out your timeline</p>
+</div>
+</div>
+<div class="mt-8 flex justify-between">
+<button id="p3c" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Back</button>
+<button id="n3c" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Next</button>
+</div>
+</div>
+<div id="q4c" class="q-c hidden">
+<h3 class="text-lg font-bold text-black mb-4">What's your graduation year?</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2025">
+<h4 class="font-bold text-black">2025</h4>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2026">
+<h4 class="font-bold text-black">2026</h4>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2027">
+<h4 class="font-bold text-black">2027</h4>
+</div>
+<div class="o-c p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 text-center" data-q="4" data-o="2028">
+<h4 class="font-bold text-black">2028</h4>
+</div>
+</div>
+<div class="mt-8 flex justify-between">
+<button id="p4c" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Back</button>
+<button id="cc" class="px-6 py-2 ix-pb text-white rounded-lg font-bold opacity-50 cursor-not-allowed" disabled>Calculate My Potential</button>
+</div>
+</div>
+<div id="rc" class="r-c hidden">
+<div class="text-center">
+<div class="inline-block p-3 rounded-full ix-pl mb-4">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 ix-p" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+</div>
+<h3 class="text-2xl md:text-3xl font-bold text-black">💰 Here's what your consulting career could look like:</h3>
+</div>
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+<h4 class="text-lg font-bold text-black">Traditional Path</h4>
+<div class="mt-4">
+<p class="text-sm text-gray-600">Starting Salary</p>
+<p class="text-2xl font-black s-n">$72,000</p>
+</div>
+<div class="mt-6">
+<p class="text-sm text-gray-600">Career Earnings</p>
+<p class="text-2xl font-black s-n">$5.2M</p>
+</div>
+<div class="mt-6 border-t border-gray-200 pt-4">
+<ul class="space-y-2">
+<li class="flex items-start">
+<svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-gray-600">Standard career progression</span>
+</li>
+<li class="flex items-start">
+<svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-gray-600">Limited networking opportunities</span>
+</li>
+<li class="flex items-start">
+<svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-gray-600">Self-guided preparation</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ix-pl p-6 rounded-xl border ix-pbd relative overflow-hidden">
+<div class="absolute top-0 right-0 ix-pb text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+RECOMMENDED
+</div>
+<h4 class="text-lg font-bold text-black">iXperience Path</h4>
+<div class="mt-4">
+<p class="text-sm ix-p">Starting Salary</p>
+<p class="text-2xl font-black ix-p">$110,000</p>
+</div>
+<div class="mt-6">
+<p class="text-sm ix-p">Career Earnings</p>
+<p class="text-2xl font-black ix-p">$8.9M+</p>
+</div>
+<div class="mt-6 border-t ix-pbd pt-4">
+<ul class="space-y-2">
+<li class="flex items-start">
+<svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-black">Hands-on training</span>
+</li>
+<li class="flex items-start">
+<svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-black">Guaranteed internship</span>
+</li>
+<li class="flex items-start">
+<svg class="h-5 w-5 ix-p mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="text-sm text-black">Industry networking systems</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-8 bg-gradient-to-r from-gray-50 to-pink-50 p-6 rounded-xl border ix-pbd">
+<div class="flex items-center">
+<div class="ix-pb rounded-full p-2 mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+</svg>
+</div>
+<div>
+<h4 class="text-lg font-bold text-black">Your Potential Lifetime Boost</h4>
+<p class="text-3xl font-black ix-p">$3.7 Million</p>
+</div>
+</div>
+</div>
+<div class="mt-10 text-center">
+<p class="text-lg font-bold text-black mb-6">🎯 Want the high-earning consulting path?</p>
+<a href="https://students.ixperience.co/sign_up" class="inline-block px-8 py-4 ix-pb hover:bg-opacity-90 text-white font-bold rounded-lg shadow-lg transition-all duration-200 transform hover:-translate-y-1">
+Apply Now to iXperience
+</a>
+<p class="mt-4 text-sm text-gray-500">Limited spots available for Summer Online 2025</p>
+</div>
+<div class="mt-8 flex justify-between">
+<button id="rbc" class="px-6 py-2 bg-gray-200 text-black rounded-lg font-bold">Start Over</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 text-center text-sm text-gray-500">
+<p>© 2023 iXperience. All rights reserved.</p>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+let p=null,q=0,t=4,a={c:{1:null,2:null,3:null,4:null},b:{1:null,2:null,3:null,4:null}};
+function u(){
+let r=p===null?0:(q===0?10:10+((q/t)*90));
+document.getElementById('pb').style.width=`${r}%`;
+document.getElementById('pp').textContent=`${Math.round(r)}%`;
+document.getElementById('pt').textContent=p===null?'Choose Your Path':q===0?'Path Selected':`Question ${q} of ${t}`;
 }
+document.getElementById('bp').addEventListener('click',function(){
+document.getElementById('ps').classList.add('hidden');
+document.getElementById('bc').classList.remove('hidden');
+p='b';q=1;u();
+});
+document.getElementById('cp').addEventListener('click',function(){
+document.getElementById('ps').classList.add('hidden');
+document.getElementById('cc').classList.remove('hidden');
+p='c';q=1;u();
+});
+document.getElementById('btp').addEventListener('click',function(){
+document.getElementById('bc').classList.add('hidden');
+document.getElementById('ps').classList.remove('hidden');
+r('b');p=null;q=0;u();
+});
+document.getElementById('btpc').addEventListener('click',function(){
+document.getElementById('cc').classList.add('hidden');
+document.getElementById('ps').classList.remove('hidden');
+r('c');p=null;q=0;u();
+});
+function r(p){
+for(let i=1;i<=t;i++)a[p][i]=null;
+document.querySelectorAll(`#${p}c .o-c`).forEach(c=>{
+c.classList.remove('s');
+});
+document.querySelectorAll(`#${p}c [id^="n"], #${p}c [id^="c"]`).forEach(b=>{
+b.classList.add('opacity-50','cursor-not-allowed');
+b.disabled=true;
+});
+document.querySelectorAll(`#${p}c [id^="q"]`).forEach((d,i)=>{
+d.classList[i===0?'remove':'add']('hidden');
+});
+document.querySelector(`#r${p}`).classList.add('hidden');
+}
+document.querySelectorAll('.o-c').forEach(c=>{
+c.addEventListener('click',function(){
+const n=parseInt(this.dataset.q);
+const o=this.dataset.o;
+this.closest('.q-c').querySelectorAll('.o-c').forEach(o=>{
+o.classList.remove('s');
+});
+this.classList.add('s');
+a[p][n]=o;
+const b=document.getElementById(`n${n}${p}`);
+if(b){
+b.classList.remove('opacity-50','cursor-not-allowed');
+b.disabled=false;
+}
+if(n===4){
+const c=document.getElementById(`c${p}`);
+c.classList.remove('opacity-50','cursor-not-allowed');
+c.disabled=false;
+}
+});
+});
+['c','b'].forEach(p=>{
+for(let i=1;i<=3;i++){
+document.getElementById(`n${i}${p}`).addEventListener('click',function(){
+document.getElementById(`q${i}${p}`).classList.add('hidden');
+document.getElementById(`q${i+1}${p}`).classList.remove('hidden');
+q=i+1;u();
+});
+}
+for(let i=2;i<=4;i++){
+document.getElementById(`p${i}${p}`).addEventListener('click',function(){
+document.getElementById(`q${i}${p}`).classList.add('hidden');
+document.getElementById(`q${i-1}${p}`).classList.remove('hidden');
+q=i-1;u();
+});
+}
+document.getElementById(`c${p}`).addEventListener('click',function(){
+document.getElementById(`q4${p}`).classList.add('hidden');
+document.getElementById(`r${p}`).classList.remove('hidden');
+document.getElementById('pb').style.width='100%';
+document.getElementById('pt').textContent='Results';
+document.getElementById('pp').textContent='100%';
+});
+document.getElementById(`rb${p}`).addEventListener('click',reset);
+});
+function reset(){
+r('c');r('b');
+document.getElementById('bc').classList.add('hidden');
+document.getElementById('cc').classList.add('hidden');
+document.getElementById('ps').classList.remove('hidden');
+p=null;q=0;u();
+}
+u();
+});
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93fa6b25550d8468',t:'MTc0NzIyNTk0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
